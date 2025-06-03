@@ -1,0 +1,33 @@
+@theme {
+  --font-openSans: 'Open Sans';
+  --font-avenirNext: 'Avenir Next';
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  src: url("/fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  src: url("/fonts/OpenSans-Italic-VariableFont_wdth\,wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  font-style: normal;
+  font-weight: 700;
+  /* Even though it's technically 600 - a white lie */
+  src: url('/fonts/AvenirNextLTPro-Demi.otf') format('opentype');
+}
