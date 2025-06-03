@@ -1,8 +1,10 @@
 @use "tailwindcss";
-@use './typography/font.scss';
+@use './font.scss';
 
 body {
-  font-family: 'Open Sans';
+  font-family:
+    var(--font-openSans),
+    var(--font-avenirNext);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
