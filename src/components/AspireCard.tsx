@@ -31,12 +31,14 @@ export const AspireCard = ({ card }: AspireCardProps) => {
       {/* Show Card Number Toggle */}
       <button
         onClick={() => setShowNumber((prev) => !prev)}
-        className="absolute -top-5 right-2 z-10 bg-neutral-0 text-aspire-green text-xs px-3 py-1 rounded-full shadow flex items-center gap-1"
+        className="absolute -top-6 right-0 -z-1 bg-neutral-0 text-aspire-green font-bold md:px-0 md:pb-3 text-xs/[17px]  rounded-t-md flex items-center gap-1.5 cursor-pointer"
       >
-        <span role="img" aria-label="eye">
-          👁
-        </span>
-        Show card number
+        <img
+          src="icons/green-eye-icon.svg"
+          alt="eye-icon"
+          className="w-4 h-4"
+        />
+        {showNumber ? "Hide card number" : "Show card number"}
       </button>
 
       {/* Card Brand Top Right */}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import cn from "classnames";
 
 type SliderProps = {
   children: React.ReactNode[];
@@ -40,9 +41,19 @@ export const Slider = ({ children, className }: SliderProps) => {
 
   return (
     <div className={className}>
-      <div ref={sliderRef} className="keen-slider">
+      <div
+        ref={sliderRef}
+        className="keen-slider"
+        style={{ overflow: "unset" }}
+      >
         {children.map((child, idx) => (
-          <div key={idx} className="keen-slider__slide">
+          <div
+            key={idx}
+            className={cn("keen-slider__slide not-[.active]:invisible", {
+              active: currentSlide === idx,
+            })}
+            style={{ overflow: "unset" }}
+          >
             <div style={scaleStyle(idx)}>{child}</div>
           </div>
         ))}
