@@ -1,4 +1,4 @@
-import { Icon } from "@shared/ui";
+import { IconWrapper } from "@shared/ui";
 import cn from "classnames";
 
 export interface NavItem {
@@ -8,7 +8,7 @@ export interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { icon: "svg/aspire-icon-white.svg", label: "Home", active: false },
+  { icon: "svg/aspire-icon.svg", label: "Home", active: false },
   { icon: "icons/green-credit-card-icon.svg", label: "Cards", active: true },
   { icon: "icons/swap-icon.svg", label: "Payments", active: false },
   { icon: "icons/arrow-up-icon.svg", label: "Credit", active: false },
@@ -38,7 +38,7 @@ export const Sidebar = () => {
               active ? "text-aspire-green font-semibold" : "text-white"
             )}
           >
-            <Icon src={icon} size={24} />
+            <IconWrapper src={icon} size={24} />
             <span className="text-base">{label}</span>
           </div>
         ))}

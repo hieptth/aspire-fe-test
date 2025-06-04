@@ -1,10 +1,10 @@
-type IconProps = {
+type IconWrapperProps = {
   src: string;
   size?: number;
   color?: string;
 };
 
-export const Icon = ({ src, size = 24, color }: IconProps) => (
+export const IconWrapper = ({ src, size = 24, color }: IconWrapperProps) => (
   <div
     style={{
       width: size,
