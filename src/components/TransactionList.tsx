@@ -29,7 +29,7 @@ const TransactionList = ({ transactions }: { transactions: Transaction[] }) => {
                 <p
                   className={`font-medium ${
                     transaction.amount.startsWith("+")
-                      ? "text-green-500"
+                      ? "text-aspire-green-500"
                       : "text-red-500"
                   }`}
                 >

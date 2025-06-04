@@ -29,7 +29,7 @@ export const MainLayout = () => {
     <div className="flex h-screen">
       <Sidebar />
       <main className="flex-1 bg-gray-50 p-4 pb-24 overflow-auto">
-        <BalanceDisplay balance="$3,000" />
+        <BalanceDisplay balance={3000} />
 
         <Tab.Group
           selectedIndex={selectedTabIndex}
@@ -59,7 +59,7 @@ export const MainLayout = () => {
                 <div className="flex space-x-4 overflow-x-auto snap-x snap-mandatory pb-4">
                   {cards.map((card) => (
                     <div key={card.id} className="snap-center shrink-0 w-72">
-                      <div className="bg-green-500 text-white rounded-xl p-4 shadow-md w-72">
+                      <div className="bg-aspire-green-500 text-white rounded-xl p-4 shadow-md w-72">
                         <div className="flex justify-between items-center mb-2">
                           <span>aspire</span>
                           <span className="text-sm">👁 Show card number</span>

@@ -1,3 +1,4 @@
+import { Icon } from "@shared/ui";
 import cn from "classnames";
 
 export interface NavItem {
@@ -7,7 +8,7 @@ export interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { icon: "svg/aspire-icon.svg", label: "Home", active: false },
+  { icon: "svg/aspire-icon-white.svg", label: "Home", active: false },
   { icon: "icons/green-credit-card-icon.svg", label: "Cards", active: true },
   { icon: "icons/swap-icon.svg", label: "Payments", active: false },
   { icon: "icons/arrow-up-icon.svg", label: "Credit", active: false },
@@ -34,10 +35,10 @@ export const Sidebar = () => {
             key={label}
             className={cn(
               "flex items-center gap-4 cursor-pointer transition-colors duration-200",
-              active ? "text-green font-semibold" : "text-white"
+              active ? "text-aspire-green font-semibold" : "text-white"
             )}
           >
-            <img src={icon} alt={label.toLocaleLowerCase()} sizes="24px" />
+            <Icon src={icon} size={24} />
             <span className="text-base">{label}</span>
           </div>
         ))}
