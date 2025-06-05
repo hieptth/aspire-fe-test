@@ -1,54 +1,79 @@
-# React + TypeScript + Vite
+# Aspire Frontend Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Aspire Frontend Test project! This is a React application built with Vite.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-## Expanding the ESLint configuration
+### Install Dependencies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+or
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+yarn install
+```
+
+### Running in Development Mode
+
+Start the development server (default: [http://localhost:4200](http://localhost:4200)):
+
+```
+npm run dev
+```
+
+or
+
+```
+yarn dev
+```
+
+### Building for Production
+
+To build the app for production:
+
+```
+npm run build
+```
+
+or
+
+```
+yarn build
+```
+
+The output will be in the `dist` folder.
+
+### Preview Production Build
+
+To preview the production build locally:
+
+```
+npm run preview
+```
+
+or
+
+```
+yarn preview
+```
+
+## Host Link
+
+You can access the deployed app at:
+
+```
+<YOUR_HOST_LINK_HERE>
+```
+
+Replace `<YOUR_HOST_LINK_HERE>` with your actual deployment URL.
+
+---
+
+Feel free to reach out if you have any questions!
