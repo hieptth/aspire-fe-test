@@ -60,8 +60,7 @@ export const AspireCard = ({ card }: AspireCardProps) => {
       <button
         onClick={() => !card.frozen && setShowNumber((prev) => !prev)}
         className={`
-          absolute -top-6 right-0 -z-1 rounded-t-md flex items-center gap-1.5
-          text-xs/[17px] font-bold md:px-0 md:pb-3
+          absolute -top-6 md:-top-8 right-0 -z-1 rounded-t-md flex items-start md:items-center gap-1.5 h-9 md:h-auto text-xs/[17px] font-bold py-1.5 px-2.5 md:px-0 md:pb-3
           ${
             card.frozen
               ? "bg-neutral-200 text-neutral-400 cursor-not-allowed"

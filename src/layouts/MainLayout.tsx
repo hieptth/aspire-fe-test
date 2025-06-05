@@ -31,7 +31,7 @@ export const MainLayout = () => {
   return (
     <div className="flex h-dvh overflow-hidden flex-col md:flex-row">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 md:p-15 scrollbar-hidden">
+      <main className="flex-1 overflow-hidden md:overflow-y-auto md:overflow-x-hidden p-8 pl-6 md:p-15 scrollbar-hidden bg-[#0C365A] md:bg-neutral-0">
         <div className="mb-6 md:mb-8.5">
           <BalanceDisplay balance={3000} />
         </div>
@@ -40,7 +40,7 @@ export const MainLayout = () => {
           <Tabs tabs={tabs} selectedIndex={0} />
         </div>
 
-        <div className="p-4 md:p-10 pt-8 md:pt-15 rounded-lg border-1 border-neutral-50 shadow-[0px_2px_12px_#00000014] grid grid-cols-1 xl:grid-cols-[minmax(0,25.875rem)_1fr] gap-6 md:gap-11.5">
+        <div className="md:p-10 pt-8 md:pt-15 md:rounded-lg md:border-1 md:border-neutral-50 md:shadow-[0px_2px_12px_#00000014] flex flex-col xl:grid xl:grid-cols-[minmax(0,25.875rem)_1fr] gap-6 md:gap-11.5">
           <div className="flex flex-col gap-6 md:gap-8 w-full max-w-full">
             {cards.length > 0 && (
               <Slider key={cards.length}>
