@@ -1,10 +1,11 @@
-import type { CreditCard } from "@shared/types";
-import { Slider, Tabs } from "@shared/ui";
+import type { CreditCard, Transaction } from "@shared/types";
+import { Accordion, Slider, Tabs } from "@shared/ui";
 import {
   AspireCard,
   BalanceDisplay,
   CardControlPanel,
   Sidebar,
+  TransactionItem,
 } from "components";
 import "./mainLayout.scss";
 
@@ -42,6 +43,38 @@ const cards: Array<CreditCard> = [
   },
 ];
 
+// Example transactions
+const transactions: Transaction[] = [
+  {
+    title: "Hamleys",
+    date: "20 May 2020",
+    amount: 150,
+    subtitle: "Refund on debit card",
+  },
+  {
+    icon: "icons/flight-icon.svg",
+    iconBg: "bg-[#00D6B51A]",
+    title: "Hamleys",
+    date: "20 May 2020",
+    amount: -150,
+    subtitle: "Charged to debit card",
+  },
+  {
+    icon: "icons/megaphone-icon.svg",
+    iconBg: "bg-[#F251951A]",
+    title: "Hamleys",
+    date: "20 May 2020",
+    amount: -150,
+    subtitle: "Charged to debit card",
+  },
+  {
+    title: "Hamleys",
+    date: "20 May 2020",
+    amount: -150,
+    subtitle: "Charged to debit card",
+  },
+];
+
 export const MainLayout = () => {
   return (
     <div className="flex h-dvh overflow-hidden">
@@ -64,6 +97,30 @@ export const MainLayout = () => {
             </Slider>
 
             <CardControlPanel />
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <Accordion>
+              <Accordion.Header>Card details</Accordion.Header>
+              <Accordion.Content>{""}</Accordion.Content>
+            </Accordion>
+
+            <div className="bg-[#EDFFF5] rounded-lg">
+              <Accordion openByDefault>
+                <Accordion.Header>Recent transactions</Accordion.Header>
+                <Accordion.Content>
+                  <div className="flex flex-col">
+                    {transactions.map((transaction, idx) => (
+                      <TransactionItem key={idx} item={transaction} />
+                    ))}
+                  </div>
+                </Accordion.Content>
+              </Accordion>
+
+              <div className="flex justify-center text-[13px]/4.5 font-semibold text-aspire-green py-4 cursor-pointer">
+                View all card transactions
+              </div>
+            </div>
           </div>
         </div>
       </main>

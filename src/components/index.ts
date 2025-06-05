@@ -4,4 +4,5 @@ export * from "./CardControlPanel";
 export * from "./MobileNav";
 export * from "./NoCardsMessage";
 export * from "./Sidebar";
+export * from "./TransactionItem";
 export * from "./TransactionList";
