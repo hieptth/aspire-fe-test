@@ -6,7 +6,7 @@ type AspireCardProps = {
 };
 
 export const AspireCard = ({ card }: AspireCardProps) => {
-  card.color = card.color || "aspire-green"; // Default color if not provided
+  card.color = card.color || "aspire-green";
   const [showNumber, setShowNumber] = useState(false);
 
   const renderDigitGroups = () =>
@@ -26,12 +26,49 @@ export const AspireCard = ({ card }: AspireCardProps) => {
 
   return (
     <div
-      className={`relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0 bg-${card.color}`}
+      className={`
+        relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0
+        bg-${card.color}
+        ${
+          card.frozen
+            ? "scale-[0.98] transition-transform duration-300 ease-in-out"
+            : ""
+        }
+      `}
     >
+      {/* Icy freeze overlay */}
+      {card.frozen && (
+        <div
+          className="absolute inset-0 rounded-xl bg-blue-100/30 backdrop-blur-[4px] border border-blue-300
+          shadow-[0_0_15px_3px_rgba(191,219,255,0.6)] pointer-events-none z-10"
+        />
+      )}
+
+      {/* Frozen badge with icy style */}
+      {card.frozen && (
+        <div
+          className="absolute top-3 right-3 z-20 px-3 py-1 bg-white/70 text-blue-700 font-bold rounded-full 
+          text-xs select-none flex items-center gap-1 shadow-[0_0_8px_#7BC6FF]"
+          aria-label="Frozen card indicator"
+        >
+          <span className="text-lg leading-none">❄️</span>
+          <span>Frozen</span>
+        </div>
+      )}
+
       {/* Show Card Number Toggle */}
       <button
-        onClick={() => setShowNumber((prev) => !prev)}
-        className="absolute -top-6 right-0 -z-1 bg-neutral-0 text-aspire-green font-bold md:px-0 md:pb-3 text-xs/[17px]  rounded-t-md flex items-center gap-1.5 cursor-pointer"
+        onClick={() => !card.frozen && setShowNumber((prev) => !prev)}
+        className={`
+          absolute -top-6 right-0 -z-1 rounded-t-md flex items-center gap-1.5
+          text-xs/[17px] font-bold md:px-0 md:pb-3
+          ${
+            card.frozen
+              ? "bg-neutral-200 text-neutral-400 cursor-not-allowed"
+              : "bg-neutral-0 text-aspire-green cursor-pointer"
+          }
+        `}
+        disabled={card.frozen}
       >
         <img
           src="icons/green-eye-icon.svg"
