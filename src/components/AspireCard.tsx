@@ -1,4 +1,5 @@
 import type { CreditCard } from "@shared/types";
+import cn from "classnames";
 import { useState } from "react";
 
 type AspireCardProps = {
@@ -6,7 +7,7 @@ type AspireCardProps = {
 };
 
 export const AspireCard = ({ card }: AspireCardProps) => {
-  card.color = card.color || "aspire-green";
+  card.color = card.color || "#01D167";
   const [showNumber, setShowNumber] = useState(false);
 
   const renderDigitGroups = () =>
@@ -26,23 +27,19 @@ export const AspireCard = ({ card }: AspireCardProps) => {
 
   return (
     <div
-      className={`
-        relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0 bg-${
-          card.color
+      className={cn(
+        "relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0",
+        {
+          "scale-[0.98] transition-transform duration-300 ease-in-out":
+            card.frozen,
         }
-        ${
-          card.frozen
-            ? "scale-[0.98] transition-transform duration-300 ease-in-out"
-            : ""
-        }
-      `}
+      )}
+      style={{ backgroundColor: card.color }}
+      aria-label={`Card for ${card.holder}`}
     >
       {/* Icy freeze overlay */}
       {card.frozen && (
-        <div
-          className="absolute inset-0 rounded-xl bg-blue-100/30 backdrop-blur-[4px] border border-blue-300
-          shadow-[0_0_15px_3px_rgba(191,219,255,0.6)] pointer-events-none z-10"
-        />
+        <div className="absolute inset-0 rounded-xl bg-blue-100/30 backdrop-blur-[4px] border border-blue-300 shadow-[0_0_15px_3px_rgba(191,219,255,0.6)] pointer-events-none z-10" />
       )}
 
       {/* Frozen badge with icy style */}
