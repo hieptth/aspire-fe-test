@@ -36,17 +36,15 @@ export const Drawer = ({ open, children, classNames }: Props) => {
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    const content = contentRef.current;
+    if (content) {
+      content.addEventListener("wheel", handleWheel, { passive: false });
+    }
 
     return () => {
-      window.removeEventListener("wheel", handleWheel);
-    };
-  }, [open]);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
+      if (content) {
+        content.removeEventListener("wheel", handleWheel);
+      }
     };
   }, [open]);
 
