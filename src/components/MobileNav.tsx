@@ -1,22 +1,19 @@
-import type { NavItem } from "./Sidebar";
+import { navItems } from "@shared/constants";
+import { IconWrapper } from "@shared/ui";
+import cn from "classnames";
 
 export const MobileNav = () => {
-  const navItems: NavItem[] = [
-    { icon: "🏠", label: "Home", active: false },
-    { icon: "💳", label: "Cards", active: true },
-    { icon: "💸", label: "Payments", active: false },
-    { icon: "📈", label: "Credit", active: false },
-    { icon: "👤", label: "Profile", active: false },
-  ];
-
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white shadow-md flex justify-around py-2 md:hidden">
-      {navItems.map(({ icon, label }) => (
+    <nav className="fixed bottom-0 left-0 w-full bg-neutral-0 shadow-[0px_-3px_6px_#00000014] flex justify-around px-8 py-2 md:hidden">
+      {navItems.map(({ icon, label, active }) => (
         <div
           key={label}
-          className="flex flex-col items-center text-xs text-gray-600"
+          className={cn(
+            "flex flex-col items-center gap-0.5 cursor-pointer transition-colors duration-200 text-[9px]/[13px]",
+            active ? "text-aspire-green font-semibold" : "text-[#DDDDDD]"
+          )}
         >
-          <span className="text-lg">{icon}</span>
+          <IconWrapper src={icon} size={24} />
           <span>{label}</span>
         </div>
       ))}

@@ -3,6 +3,7 @@ import {
   AspireCard,
   BalanceDisplay,
   CardControlPanel,
+  MobileNav,
   Sidebar,
   TransactionItem,
 } from "components";
@@ -100,6 +101,8 @@ export const MainLayout = () => {
           </div>
         </div>
       </main>
+
+      <MobileNav />
     </div>
   );
 };
