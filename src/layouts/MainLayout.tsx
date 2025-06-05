@@ -1,4 +1,4 @@
-import type { CreditCard, Transaction } from "@shared/types";
+import type { Transaction } from "@shared/types";
 import { Accordion, Slider, Tabs } from "@shared/ui";
 import {
   AspireCard,
@@ -7,41 +7,12 @@ import {
   Sidebar,
   TransactionItem,
 } from "components";
+import { useEffect } from "react";
+import { fetchInitialCards } from "services";
+import { useCardStore } from "stores";
 import "./mainLayout.scss";
 
 const tabs = ["My debit cards", "All company cards"];
-
-const cards: Array<CreditCard> = [
-  {
-    id: "card-1",
-    logo: "svg/aspire-logo-white.svg",
-    holder: "Mark Henry",
-    number: "1234 5678 9012 2020",
-    expiry: "12/20",
-    cvv: "123",
-    brand: "svg/visa-logo.svg",
-  },
-  {
-    id: "card-2",
-    logo: "svg/aspire-logo-white.svg",
-    color: "aspire-blue",
-    holder: "Sarah Connor",
-    number: "1111 2222 3333 4444",
-    expiry: "01/26",
-    cvv: "456",
-    brand: "svg/visa-logo.svg",
-  },
-  {
-    id: "card-3",
-    logo: "svg/aspire-logo-white.svg",
-    color: "secondary",
-    holder: "John Doe",
-    number: "5555 6666 7777 8888",
-    expiry: "11/25",
-    cvv: "789",
-    brand: "svg/visa-logo.svg",
-  },
-];
 
 // Example transactions
 const transactions: Transaction[] = [
@@ -76,6 +47,18 @@ const transactions: Transaction[] = [
 ];
 
 export const MainLayout = () => {
+  const { cards, setCards } = useCardStore();
+
+  useEffect(() => {
+    if (cards.length === 0) {
+      fetchInitialCards().then((fetchedCards) => {
+        setCards(fetchedCards);
+        useCardStore.getState().setCurrentCard(fetchedCards[0]);
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="flex h-dvh overflow-hidden">
       <Sidebar />
@@ -90,11 +73,13 @@ export const MainLayout = () => {
 
         <div className="p-10 pt-15 rounded-lg border-1 border-neutral-50 shadow-[0px_2px_12px_#00000014] grid grid-cols-[minmax(0,25.875rem)_1fr] gap-11.5">
           <div className="flex flex-col gap-8">
-            <Slider>
-              {cards.map((card) => (
-                <AspireCard key={card.id} card={card} />
-              ))}
-            </Slider>
+            {cards.length > 0 && (
+              <Slider key={cards.length}>
+                {cards.map((card) => (
+                  <AspireCard key={card.id} card={card} />
+                ))}
+              </Slider>
+            )}
 
             <CardControlPanel />
           </div>

@@ -50,7 +50,7 @@ export const TransactionItem = ({ item }: { item: Transaction }) => {
             alt="chevron-right"
             width={6.5}
             height={12}
-            className="object-contain"
+            className="shrink-0"
           />
         </div>
       </div>
@@ -62,7 +62,7 @@ export const TransactionItem = ({ item }: { item: Transaction }) => {
             alt="credit-card"
             width={10}
             height={8}
-            className="object-contain"
+            className="shrink-0"
           />
         </div>
 

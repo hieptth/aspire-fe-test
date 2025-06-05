@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 import cn from "classnames";
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
+import { useState } from "react";
+import { useCardStore } from "stores";
 
 type SliderProps = {
   children: React.ReactNode[];
@@ -14,11 +15,15 @@ export const Slider = ({ children, className }: SliderProps) => {
     slides: { portion: number }[];
   } | null>(null);
   const [loaded, setLoaded] = useState(false);
+
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     loop: true,
     slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
+      const idx = slider.track.details.rel;
+      setCurrentSlide(idx);
+      const card = useCardStore.getState().cards[idx];
+      useCardStore.getState().setCurrentCard(card);
     },
     detailsChanged(s) {
       setDetails(s.track.details);
@@ -29,8 +34,8 @@ export const Slider = ({ children, className }: SliderProps) => {
   });
 
   const scaleStyle = (idx: number) => {
-    if (!details) return {};
-    const slide = details.slides[idx];
+    const slide = details?.slides?.[idx];
+    if (!slide) return {};
     const scale_size = 0.7;
     const scale = 1 - (scale_size - scale_size * slide.portion);
     return {

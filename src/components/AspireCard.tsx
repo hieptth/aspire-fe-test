@@ -43,7 +43,11 @@ export const AspireCard = ({ card }: AspireCardProps) => {
 
       {/* Card Brand Top Right */}
       <div className="self-end mb-6 md:mb-6.75">
-        <img src={card.logo} alt="card-logo" className="h-6" />
+        <img
+          src={card.logo || "svg/aspire-logo-white.svg"}
+          alt="card-logo"
+          className="h-6"
+        />
       </div>
 
       {/* Holder Name */}
@@ -72,7 +76,7 @@ export const AspireCard = ({ card }: AspireCardProps) => {
 
       {/* Card Brand Bottom Right */}
       <div className="self-end">
-        <img src={card.brand} alt="card-brand" width={66} height={22} />
+        <img src="svg/visa-logo.svg" alt="card-brand" width={66} height={22} />
       </div>
     </div>
   );

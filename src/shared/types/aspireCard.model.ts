@@ -1,10 +1,11 @@
 export type CreditCard = {
   id: string;
-  logo: string;
+  logo?: string;
   color?: string;
   holder: string;
   number: string;
   expiry: string;
   cvv: string;
-  brand: "VISA" | "Mastercard" | "Amex" | string;
+  frozen?: boolean;
+  createdAt?: string; // Optional, used for sorting or display purposes
 };
