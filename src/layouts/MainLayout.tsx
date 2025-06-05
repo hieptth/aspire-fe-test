@@ -1,6 +1,11 @@
 import type { CreditCard } from "@shared/types";
 import { Slider, Tabs } from "@shared/ui";
-import { AspireCard, BalanceDisplay, Sidebar } from "components";
+import {
+  AspireCard,
+  BalanceDisplay,
+  CardControlPanel,
+  Sidebar,
+} from "components";
 import "./mainLayout.scss";
 
 const tabs = ["My debit cards", "All company cards"];
@@ -50,12 +55,16 @@ export const MainLayout = () => {
           <Tabs tabs={tabs} selectedIndex={0} />
         </div>
 
-        <div className="p-10 pt-15 rounded-lg border-1 border-neutral-50 shadow-[0px_2px_12px_#00000014]">
-          <Slider className="max-w-103.5">
-            {cards.map((card) => (
-              <AspireCard key={card.id} card={card} />
-            ))}
-          </Slider>
+        <div className="p-10 pt-15 rounded-lg border-1 border-neutral-50 shadow-[0px_2px_12px_#00000014] grid grid-cols-[minmax(0,25.875rem)_1fr] gap-11.5">
+          <div className="flex flex-col gap-8">
+            <Slider>
+              {cards.map((card) => (
+                <AspireCard key={card.id} card={card} />
+              ))}
+            </Slider>
+
+            <CardControlPanel />
+          </div>
         </div>
       </main>
     </div>
