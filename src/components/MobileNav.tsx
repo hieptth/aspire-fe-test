@@ -2,9 +2,14 @@ import { navItems } from "@shared/constants";
 import { IconWrapper } from "@shared/ui";
 import cn from "classnames";
 
-export const MobileNav = () => {
+export const MobileNav = ({ classNames }: { classNames?: string }) => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-neutral-0 shadow-[0px_-3px_6px_#00000014] flex justify-around px-8 py-2 md:hidden">
+    <nav
+      className={cn(
+        "fixed bottom-0 left-0 w-full bg-neutral-0 shadow-[0px_-3px_6px_#00000014] flex justify-around px-8 py-2 md:hidden z-1001",
+        classNames
+      )}
+    >
       {navItems.map(({ icon, label, active }) => (
         <div
           key={label}

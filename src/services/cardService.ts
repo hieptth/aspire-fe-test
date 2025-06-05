@@ -11,7 +11,7 @@ export const defaultCards: Array<CreditCard> = [
   },
   {
     id: "card-2",
-    color: "aspire-blue",
+    color: "#23CEFD",
     holder: "Sarah Connor",
     number: "4321 8765 2109 6543",
     expiry: "01/27",
@@ -20,7 +20,7 @@ export const defaultCards: Array<CreditCard> = [
   },
   {
     id: "card-3",
-    color: "secondary",
+    color: "#536DFF",
     holder: "John Doe",
     number: "5555 6666 7777 8888",
     expiry: "11/25",

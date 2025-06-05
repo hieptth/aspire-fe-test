@@ -27,8 +27,9 @@ export const AspireCard = ({ card }: AspireCardProps) => {
   return (
     <div
       className={`
-        relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0
-        bg-${card.color}
+        relative flex flex-col rounded-xl p-6 md:p-6.75 text-neutral-0 bg-${
+          card.color
+        }
         ${
           card.frozen
             ? "scale-[0.98] transition-transform duration-300 ease-in-out"
