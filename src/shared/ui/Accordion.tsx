@@ -45,7 +45,7 @@ const Header = ({
 
   return (
     <div
-      className={`flex items-center justify-between gap-6 p-6 rounded-lg bg-[#F5F9FF] border-1 border-[#F5F5F5] shadow-[0px_0px_8px_#0000000A] cursor-pointer ${classNames}`}
+      className={`flex items-center justify-between gap-6 p-6 rounded-lg bg-[#F5F9FF] border-1 border-[#F5F5F5] shadow-[0px_0px_8px_#0000000A] text-[#0C365A] text-sm/4.5 font-medium cursor-pointer ${classNames}`}
       onClick={ctx.toggle}
     >
       {children}

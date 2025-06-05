@@ -101,13 +101,35 @@ export const MainLayout = () => {
 
           <div className="flex flex-col gap-6">
             <Accordion>
-              <Accordion.Header>Card details</Accordion.Header>
+              <Accordion.Header>
+                <div className="flex items-center gap-3">
+                  <img
+                    src="icons/detail-icon.svg"
+                    alt="card-details-icon"
+                    width={24}
+                    height={24}
+                    className="shrink-0"
+                  />
+                  Card details
+                </div>
+              </Accordion.Header>
               <Accordion.Content>{""}</Accordion.Content>
             </Accordion>
 
             <div className="bg-[#EDFFF5] rounded-lg">
               <Accordion openByDefault>
-                <Accordion.Header>Recent transactions</Accordion.Header>
+                <Accordion.Header>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src="icons/outline-swap-icon.svg"
+                      alt="recent-transaction-icon"
+                      width={24}
+                      height={24}
+                      className="shrink-0"
+                    />
+                    Recent transactions
+                  </div>
+                </Accordion.Header>
                 <Accordion.Content>
                   <div className="flex flex-col">
                     {transactions.map((transaction, idx) => (
