@@ -66,13 +66,7 @@ yarn preview
 
 ## Host Link
 
-You can access the deployed app at:
-
-```
-<YOUR_HOST_LINK_HERE>
-```
-
-Replace `<YOUR_HOST_LINK_HERE>` with your actual deployment URL.
+You can access the deployed app at: [AspireFrontendTest](https://aspire-fe-test-ruby.vercel.app)
 
 ---
 
