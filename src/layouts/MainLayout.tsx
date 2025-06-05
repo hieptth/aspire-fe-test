@@ -1,4 +1,3 @@
-import type { Transaction } from "@shared/types";
 import { Accordion, Slider, Tabs } from "@shared/ui";
 import {
   AspireCard,
@@ -8,46 +7,15 @@ import {
   TransactionItem,
 } from "components";
 import { useEffect } from "react";
-import { fetchInitialCards } from "services";
-import { useCardStore } from "stores";
+import { fetchInitialCards, fetchTransactions } from "services";
+import { useCardStore, useTransactionStore } from "stores";
 import "./mainLayout.scss";
 
 const tabs = ["My debit cards", "All company cards"];
 
-// Example transactions
-const transactions: Transaction[] = [
-  {
-    title: "Hamleys",
-    date: "20 May 2020",
-    amount: 150,
-    subtitle: "Refund on debit card",
-  },
-  {
-    icon: "icons/flight-icon.svg",
-    iconBg: "bg-[#00D6B51A]",
-    title: "Hamleys",
-    date: "20 May 2020",
-    amount: -150,
-    subtitle: "Charged to debit card",
-  },
-  {
-    icon: "icons/megaphone-icon.svg",
-    iconBg: "bg-[#F251951A]",
-    title: "Hamleys",
-    date: "20 May 2020",
-    amount: -150,
-    subtitle: "Charged to debit card",
-  },
-  {
-    title: "Hamleys",
-    date: "20 May 2020",
-    amount: -150,
-    subtitle: "Charged to debit card",
-  },
-];
-
 export const MainLayout = () => {
   const { cards, setCards } = useCardStore();
+  const { transactions, setTransactions } = useTransactionStore();
 
   useEffect(() => {
     if (cards.length === 0) {
@@ -56,6 +24,7 @@ export const MainLayout = () => {
         useCardStore.getState().setCurrentCard(fetchedCards[0]);
       });
     }
+    fetchTransactions().then(setTransactions);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

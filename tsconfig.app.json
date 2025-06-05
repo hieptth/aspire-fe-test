@@ -28,7 +28,10 @@
     "paths": {
       "@public/*": ["../public/*"],
       "@shared/*": ["./shared/*"],
-      "@layouts/*": ["./layouts/*"]
+      "@layouts/*": ["./layouts/*"],
+      "@stores/*": ["./stores/*"],
+      "@components/*": ["./components/*"],
+      "@services/*": ["./services/*"]
     }
   },
   "include": ["src"]
