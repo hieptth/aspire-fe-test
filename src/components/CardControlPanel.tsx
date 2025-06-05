@@ -16,7 +16,7 @@ export const CardControlPanel = () => {
   };
 
   return (
-    <div className="flex gap-7.5 rounded-2xl py-5 px-8 bg-[#EDF3FF]">
+    <div className="flex flex-wrap justify-center w-full gap-7.5 rounded-2xl py-5 px-4 md:px-8 bg-[#EDF3FF]">
       {/* Freeze card */}
       <div
         className="flex flex-col items-center max-w-10 gap-2 cursor-pointer"
